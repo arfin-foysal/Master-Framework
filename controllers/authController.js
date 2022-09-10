@@ -12,7 +12,9 @@ const jwt = require('jsonwebtoken');
 // router.post('/signup',
 const signUp = async function (req, res) {
 
-    res.send('signup');
+
+
+    res.send(req.body);
 
     // const findUser = await User.findOne({ where: { email: req.body.email } });
     // if (findUser) {
