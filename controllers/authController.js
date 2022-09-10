@@ -28,7 +28,7 @@ const signUp = async function (req, res) {
 
     try {
         res.send({
-            data: newUser,
+            // data: newUser,
             message: 'User created successfully'
         })
     } catch (error) {
