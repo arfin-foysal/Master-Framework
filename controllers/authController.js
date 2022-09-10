@@ -12,28 +12,30 @@ const jwt = require('jsonwebtoken');
 // router.post('/signup',
 const signUp = async function (req, res) {
 
-    const findUser = await User.findOne({ where: { email: req.body.email } });
-    if (findUser) {
-        return res.status(409).json({
-            message: 'user mail already exists'
-        });
-    }
-    const newUser = await User.create({
-        email: req.body.email,
-        password: req.body.password,
-        fullname: req.body.fullname,
-        phone: req.body.phone,
-        role_id: req.body.role_id
-    });
+    res.send('signup');
 
-    try {
-        res.send({
-            // data: newUser,
-            message: 'User created successfully'
-        })
-    } catch (error) {
-        res.status(404).json({ messages: "Server Error" });
-    }
+    // const findUser = await User.findOne({ where: { email: req.body.email } });
+    // if (findUser) {
+    //     return res.status(409).json({
+    //         message: 'user mail already exists'
+    //     });
+    // }
+    // const newUser = await User.create({
+    //     email: req.body.email,
+    //     password: req.body.password,
+    //     fullname: req.body.fullname,
+    //     phone: req.body.phone,
+    //     role_id: req.body.role_id
+    // });
+
+    // try {
+    //     res.send({
+    //         // data: newUser,
+    //         message: 'User created successfully'
+    //     })
+    // } catch (error) {
+    //     res.status(404).json({ messages: "Server Error" });
+    // }
 
 };
                
