@@ -51,7 +51,7 @@ const helper = new Helper();
 
    const listRole= function (req, res) {
     helper.checkPermission(req.user.role_id, 'role_get_all').then((rolePerm) => {
-        console.log(rolePerm);
+        // console.log(rolePerm);
         Role
             .findAll({
                 include: [{
@@ -64,7 +64,7 @@ const helper = new Helper();
                     }
                 ]
             })
-            .then((roles) => res.status(200).send(roles))
+            .then((roles) => res.status(200).send(roles))z
             .catch((error) => {
                 res.status(400).send({
                     success: false,
