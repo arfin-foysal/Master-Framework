@@ -52,7 +52,22 @@ const signUp = async function (req, res) {
             messages: "User password is not valid",
 
         });
-    }
+       }
+       const findDitles= await User.findOne({
+        include: [
+          {
+                model: Role,
+                attributes: ['role_name'],
+                where: {
+                    id: findUser.role_id,
+                },
+             
+          },
+           ],
+           attributes: ['id', 'email', 'fullname', 'phone', 'role_id'],
+      })
+      
+
   
     const { id, fullname, email: userEmail,role_id } = findUser;
   
@@ -66,7 +81,8 @@ const signUp = async function (req, res) {
   
     const Token = jwt.sign(userInfo, process.env.TOKEN, { expiresIn: "1h" });
    try {
-    res.status(200).json({
+       res.status(200).json({
+        userDitles:findDitles,
       token: Token,
       user: userInfo,
       messages: "User Login Successfully",
